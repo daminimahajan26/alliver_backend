@@ -76,7 +76,7 @@ app.use(express.json({ limit: '1mb' }));
 const formLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, standardHeaders: true, legacyHeaders: false, message: { error: 'Too many requests, try later.' } });
 const loginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, message: { error: 'Too many login attempts.' } });
 
-const validate = schema => (req, res, next) => {
+app.get('/api/health', (_, res) => res.json({ ok: true }));
   const r = schema.safeParse(req.body);
   if (!r.success) return res.status(400).json({ error: 'Validation failed', details: r.error.flatten().fieldErrors });
   req.body = r.data; next();
