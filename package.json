@@ -2,8 +2,8 @@
   "name": "alliver-backend",
   "version": "1.0.0",
   "description": "Backend API for allivermarketing.in",
-  "main": "src/server.js",
-  "scripts": { "start": "node src/server.js", "dev": "node --watch src/server.js" },
+  "main": "server.js",
+ "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "better-sqlite3": "^11.3.0",
