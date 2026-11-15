@@ -75,7 +75,7 @@ app.use(express.json({ limit: '1mb' }));
 
 const formLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, standardHeaders: true, legacyHeaders: false, message: { error: 'Too many requests, try later.' } });
 const loginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, message: { error: 'Too many login attempts.' } });
-
+app.get('/', (_, res) => res.json({ status: 'OK', message: 'ALLIVER API is running' }));
 app.get('/api/health', (_, res) => res.json({ ok: true }));
   const r = schema.safeParse(req.body);
   if (!r.success) return res.status(400).json({ error: 'Validation failed', details: r.error.flatten().fieldErrors });
